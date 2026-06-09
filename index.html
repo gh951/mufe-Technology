@@ -262,9 +262,9 @@
     <div class="feat rv">
       <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 4l3 3M20 4l-3 3M4 20l3-3M20 20l-3-3"/></svg></div>
       <div>
-        <h3>7. 다중 결합 (하나의 키로 융합)</h3>
-        <div class="what">비밀번호·카오스 키·생체를 따로 검사하지 않고, <b>하나의 키 재료로 묶습니다.</b></div>
-        <div class="why">한 조각이 털려도 키는 복원되지 않습니다. 모든 요소가 <b>동시에·실시간으로·이 기기에서</b> 맞아야 열립니다.</div>
+        <h3>7. 다중 결합 — 연동 / 독립 선택</h3>
+        <div class="what">비밀번호·카오스 키·생체를 <b>하나의 키로 묶거나(연동)</b>, <b>요소별로 따로 검증(독립)</b> — 두 모드 중 고릅니다.</div>
+        <div class="why"><b>연동</b>은 한 조각이 털려도 키가 복원되지 않습니다(아래 비트 계산이 이 연동 기준). <b>독립</b>은 각 요소를 개별로 통과해야 합니다. 어느 쪽이든 모든 요소가 <b>동시에·실시간으로·이 기기에서</b> 맞아야 열립니다.</div>
       </div>
     </div>
   </div>
@@ -334,7 +334,7 @@
         </tbody>
       </table>
     </div>
-    <p class="rv" style="margin-top:30px;font-weight:800;color:var(--text);font-size:16px">비트 수를 적용하면 — 몇 년?</p>
+    <p class="rv" style="margin-top:30px;font-weight:800;color:var(--text);font-size:16px">무페 비트 수를 적용하면 — 몇 년?</p>
     <div class="tblwrap rv">
       <table>
         <thead><tr><th>비밀 강도 (비번 + 카오스 결합)</th><th>조합 수</th><th class="mufe-col">무차별 대입 소요</th></tr></thead>
@@ -347,11 +347,33 @@
     </div>
     <p class="rv" style="font-size:13px;color:var(--muted);margin-top:12px;line-height:1.7">
       가정 — 초당 <b style="color:var(--text)">10억 회</b> 대입(강력한 공격자 기준). <b style="color:var(--teal-deep)">Argon2id(메모리-하드)</b>를 적용하면 추측당 비용이 커져 <b style="color:var(--text)">이보다 훨씬 더 깁니다.</b>
-      비트는 공격자가 맞혀야 할 <b style="color:var(--text)">비밀</b>(화면의 공개 챌린지 제외)이며, 온라인 시도는 미끼(연산지옥)로 차단됩니다.
+      비트는 공격자가 맞혀야 할 <b style="color:var(--text)">비밀</b>(화면의 공개 챌린지 제외)이며, 온라인 시도는 미끼(연산지옥)로 차단됩니다. 이 수치는 다중 결합 <b style="color:var(--text)">연동</b>(요소를 키 하나로 묶음) 기준이며, 무페는 연동·독립 두 모드를 제공합니다.
     </p>
-    <p style="margin-top:22px;font-size:14px" class="rv">정직하게 — <b style="color:var(--text)">약한 비밀번호는 어느 시스템에서든 빨리 뚫립니다.</b>
-       그래서 무패는 비번 하나에 기대지 않고 <b style="color:var(--teal-deep)">실시간 값·생체·미끼</b>를 겹쳐, 약한 고리를 메웁니다.
-       무차별 대입의 진짜 방어선은 '비트 수'가 아니라 '<b style="color:var(--text)">시도조차 못 하게 만드는 구조</b>'입니다.</p>
+    <p class="rv" style="margin-top:30px;font-weight:800;color:var(--text);font-size:16px">빅테크와 같은 층(layer)끼리 비교 (구글·애플 등)</p>
+    <div class="tblwrap rv">
+      <table>
+        <thead><tr><th>같은 층 (무엇)</th><th>빅테크</th><th class="mufe-col">무페</th></tr></thead>
+        <tbody>
+          <tr><td class="k">사람이 외우는 비밀<br>(실제 공격 표적)</td>
+              <td>비밀번호 ~40~60비트<br><span style="font-size:12px;color:var(--muted)">(패스키·2FA는 별도)</span></td>
+              <td class="mufe-col">비번 + 카오스 <b>연동</b> ~최대 114비트 <span class="v-up">→ 더 높음</span></td></tr>
+          <tr><td class="k">키 교환 / 공개키</td>
+              <td>RSA-2048(~112)·ECC(~128)<br><span class="v-dn">양자 취약 (2030~2035)</span></td>
+              <td class="mufe-col">ML-KEM-768 → 256비트 공유키<br><span class="v-up">양자내성</span></td></tr>
+          <tr><td class="k">대칭 세션키<br>(기계 생성)</td>
+              <td>AES-256 (256비트)</td>
+              <td class="mufe-col">256비트급 (ML-KEM 공유키) — <span class="v-mid">대등</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rv" style="font-size:13px;color:var(--muted);margin-top:12px;line-height:1.7">
+      흔한 오해 — 무페 "114비트"는 <b style="color:var(--text)">사람이 외워 입력하는 비밀</b>이라, 빅테크의 <b style="color:var(--text)">기계가 만든 256비트 키(AES)</b>와 같은 칸에 놓으면 작아 보입니다. 같은 종류끼리 보면 <b style="color:var(--teal-deep)">어느 층에서도 무페가 빅테크보다 작지 않습니다</b> — 사람이 외우는 비밀은 카오스 키 덕에 더 높고, 키 교환은 ML-KEM으로 양자내성까지 갖춥니다.
+    </p>
+    <p class="rv" style="margin-top:30px;font-weight:800;color:var(--text);font-size:16px">어렵게 외우지 않습니다 — 이해로 만듭니다</p>
+    <p class="rv" style="font-size:14.5px;margin-top:8px">보통은 "강한 비밀번호 = 복잡해서 못 외우는 것"이죠. 무페는 반대예요 — <b style="color:var(--text)">감각으로 억지로 외우는 게 아니라, 뜻으로 이해해서 자연스럽게 떠올립니다.</b></p>
+    <p class="rv" style="font-size:14.5px;margin-top:12px">의미 있는 한글을 <b>영문 자판 그대로</b> 칩니다. "날씨가"는 <span class="mono" style="background:var(--paper2);padding:2px 7px;border-radius:5px">skfTlrk</span>, "오해가"는 <span class="mono" style="background:var(--paper2);padding:2px 7px;border-radius:5px">dhgork</span> — 화면엔 무작위처럼 보여도, 당신은 <b style="color:var(--teal-deep)">"날씨가 오해가 있다"</b> 같은 엉뚱한 한 문장만 기억하면 됩니다. 기호 <span class="mono" style="background:var(--paper2);padding:2px 7px;border-radius:5px">@^^</span>를 섞으면 더 강해지고, <b>엉뚱할수록(예측이 어려울수록) 더 강합니다.</b></p>
+    <p class="rv" style="font-size:14.5px;margin-top:12px">여기에 <b>카오스 키</b>를 더하고, <b>독립</b> 모드라면 — 지인의 생년월일·좋아하는 숫자처럼 <b style="color:var(--text)">당신에게만 의미 있는 숫자</b>를 배합합니다. 복잡하지 않은데, 남이 짐작하긴 어렵습니다.</p>
+    <p class="rv" style="margin-top:14px;font-size:14px">그리고 무페는 비번 하나에 기대지 않고 <b style="color:var(--teal-deep)">카오스·실시간 값·생체·미끼</b>를 겹쳐 약한 고리를 메웁니다. 무차별 대입의 진짜 방어선은 '비트 수'가 아니라 '<b style="color:var(--text)">시도조차 못 하게 만드는 구조</b>'입니다.</p>
   </div>
 </section>
 
