@@ -105,6 +105,7 @@
   .v-mid{color:var(--amber);font-weight:700}
   .v-dn{color:#C0506A;font-weight:700}
   .mufe-col{background:rgba(22,201,192,.07)}
+  thead th.mufe-col{background:var(--ink);color:var(--teal)}
 
   /* ---------- honest note ---------- */
   .honest{background:var(--paper2)}
@@ -168,7 +169,7 @@
 <!-- HERO -->
 <header class="hero">
   <div class="hero-inner">
-    <div class="kicker">MUFE 백신 · 기술 제안서</div>
+    <div class="kicker">MUFE 백신 · 기술 보고서</div>
     <h1><span id="scramble" data-text="MUFE 백신">MUFE 백신</span></h1>
     <div class="tag">양자 시대의 인증 — 훔칠 데이터가 없습니다.</div>
     <p class="sub">빅테크는 비밀을 <b>더 안전하게 저장</b>하려고 애씁니다. 무패는 비밀을 <b>아예 저장하지 않습니다.</b>
@@ -202,7 +203,7 @@
 <section>
   <div class="wrap">
     <div class="eyebrow rv">무엇으로 지키나 · 핵심 기능</div>
-    <h2 class="rv">여섯 겹의 방어, 쉽게 풀면</h2>
+    <h2 class="rv">일곱 겹의 방어, 쉽게 풀면</h2>
 
     <div class="feat rv">
       <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div>
@@ -232,9 +233,18 @@
     </div>
 
     <div class="feat rv">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/><path d="M6.5 13.5l1.6 1.6 2.4-3"/></svg></div>
+      <div>
+        <h3>4. 이미지를 수학으로 (선·색의 수치화)</h3>
+        <div class="what">화면의 카오스 이미지는 그냥 그림이 아닙니다. 그 <b>선·모양·색</b>이 실시간으로 <b>숫자(좌표·색상값)</b>로 바뀌어 인증 키의 재료가 됩니다.</div>
+        <div class="why">보이는 그림이 곧 <b>살아있는 난수</b>예요. 글자 속엔 회전마다 새 수식이 박히고, 매 순간 다시 수치화되니 — 화면을 캡처해도 <b>다시 쓸 수 있는 고정값</b>이 남지 않습니다. "보이는 게 진실이 아니다"가 여기서 실제로 작동합니다.</div>
+      </div>
+    </div>
+
+    <div class="feat rv">
       <div class="ic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
       <div>
-        <h3>4. 생체 인증 (rPPG + 동공 반사)</h3>
+        <h3>5. 생체 인증 (rPPG + 동공 반사)</h3>
         <div class="what">얼굴 혈류(rPPG)와 빛에 반응하는 동공 움직임을 봅니다.</div>
         <div class="why">지금 <b>살아있는 본인</b>이어야 통과 — 사진·영상·딥페이크는 막힙니다. (덤으로 심박 등 생체 신호도 읽지만, 그건 건강 기능이지 의료 진단은 아닙니다.)</div>
       </div>
@@ -243,7 +253,7 @@
     <div class="feat rv">
       <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 17l-5.5 2.5 1-6.3L3 8.9 9 8z"/></svg></div>
       <div>
-        <h3>5. 능동 기만 (미끼 · 연산지옥)</h3>
+        <h3>6. 능동 기만 (미끼 · 연산지옥)</h3>
         <div class="what">공격자를 차단하지 않습니다. 대신 <b>가짜 성공</b>을 보여주고 유인합니다.</div>
         <div class="why">"뚫었다"고 착각한 공격자는 끝없는 가짜 연산(연산지옥)에 빠져 시간을 낭비합니다. 수동적 방어를 넘어선 <b>적대적 기만 전술</b> — 빅테크에도 드뭅니다.</div>
       </div>
@@ -252,7 +262,7 @@
     <div class="feat rv">
       <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 4l3 3M20 4l-3 3M4 20l3-3M20 20l-3-3"/></svg></div>
       <div>
-        <h3>6. 다중 결합 (하나의 키로 융합)</h3>
+        <h3>7. 다중 결합 (하나의 키로 융합)</h3>
         <div class="what">비밀번호·카오스 키·생체를 따로 검사하지 않고, <b>하나의 키 재료로 묶습니다.</b></div>
         <div class="why">한 조각이 털려도 키는 복원되지 않습니다. 모든 요소가 <b>동시에·실시간으로·이 기기에서</b> 맞아야 열립니다.</div>
       </div>
@@ -307,23 +317,38 @@
 
     <div class="tblwrap rv">
       <table>
-        <thead><tr><th>공격 시나리오</th><th>일반 비밀번호 시스템</th><th class="mufe-col">무패</th></tr></thead>
+        <thead><tr><th>공격 시나리오</th><th>빅테크</th><th class="mufe-col">무패</th></tr></thead>
         <tbody>
           <tr><td class="k">온라인 대입<br>(직접 로그인 시도)</td>
               <td>속도 제한으로 늦추되, 시도는 가능</td>
               <td class="mufe-col">미끼(연산지옥)로 <span class="v-up">유인·격리</span> — 시도 자체가 헛수고</td></tr>
           <tr><td class="k">오프라인 대입<br>(DB 유출 후)</td>
-              <td>유출된 해시를 초당 수십억 번 크래킹<br><span class="v-dn">약한 비번은 수 분~수 일</span></td>
+              <td>저장된 해시·템플릿이 <span class="v-dn">표적</span><br>유출 시 오프라인 대입 대상</td>
               <td class="mufe-col"><span class="v-up">유출될 비번 DB 자체가 없음</span> + Argon2id로 추측당 고비용</td></tr>
           <tr><td class="k">강한 12자 비번<br>(소요 시간)</td>
               <td>고속 시스템도 <span class="v-mid">수만 년+</span></td>
-              <td class="mufe-col">Argon2id로 추측이 느려 <span class="v-up">사실상 비현실적</span></td></tr>
+              <td class="mufe-col">Argon2id + 카오스 키 → <span class="v-up">수경 년</span> (아래 표)</td></tr>
           <tr><td class="k">양자 가속<br>(Grover)</td>
               <td>비트 절반 단축</td>
               <td class="mufe-col">메모리-하드라 <span class="v-up">가속 거의 무효</span></td></tr>
         </tbody>
       </table>
     </div>
+    <p class="rv" style="margin-top:30px;font-weight:800;color:var(--text);font-size:16px">비트 수를 적용하면 — 몇 년?</p>
+    <div class="tblwrap rv">
+      <table>
+        <thead><tr><th>비밀 강도 (비번 + 카오스 결합)</th><th>조합 수</th><th class="mufe-col">무차별 대입 소요</th></tr></thead>
+        <tbody>
+          <tr><td class="k">64비트</td><td>약 1.8 × 10¹⁹</td><td class="mufe-col">약 <span class="v-mid">585 년</span></td></tr>
+          <tr><td class="k">90비트</td><td>약 1.2 × 10²⁷</td><td class="mufe-col">약 <span class="v-up">390억 년</span></td></tr>
+          <tr><td class="k">114비트</td><td>약 2.1 × 10³⁴</td><td class="mufe-col">약 <span class="v-up">66경 년</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rv" style="font-size:13px;color:var(--muted);margin-top:12px;line-height:1.7">
+      가정 — 초당 <b style="color:var(--text)">10억 회</b> 대입(강력한 공격자 기준). <b style="color:var(--teal-deep)">Argon2id(메모리-하드)</b>를 적용하면 추측당 비용이 커져 <b style="color:var(--text)">이보다 훨씬 더 깁니다.</b>
+      비트는 공격자가 맞혀야 할 <b style="color:var(--text)">비밀</b>(화면의 공개 챌린지 제외)이며, 온라인 시도는 미끼(연산지옥)로 차단됩니다.
+    </p>
     <p style="margin-top:22px;font-size:14px" class="rv">정직하게 — <b style="color:var(--text)">약한 비밀번호는 어느 시스템에서든 빨리 뚫립니다.</b>
        그래서 무패는 비번 하나에 기대지 않고 <b style="color:var(--teal-deep)">실시간 값·생체·미끼</b>를 겹쳐, 약한 고리를 메웁니다.
        무차별 대입의 진짜 방어선은 '비트 수'가 아니라 '<b style="color:var(--text)">시도조차 못 하게 만드는 구조</b>'입니다.</p>
@@ -335,7 +360,7 @@
   <div class="wrap">
     <div class="eyebrow rv">기술 대 기술 · 빅테크와 비교</div>
     <h2 class="rv">순수 기술로 나란히 놓으면</h2>
-    <p class="rv">팀 규모·감사 같은 '회사 운영'은 뺐습니다. <b style="color:var(--text)">기술 자체</b>만 비교합니다.</p>
+    <p class="rv"><b style="color:var(--text)">순수 기술력</b>만 나란히 놓고 봅니다.</p>
     <div class="tblwrap rv">
       <table>
         <thead><tr><th>항목</th><th>빅테크(현재 관행)</th><th class="mufe-col">무패</th><th>평가</th></tr></thead>
@@ -379,13 +404,13 @@
     <div class="doors">
       <div class="door main rv">
         <div class="lbl">정상 입구</div>
-        <h3>본페이지(대시보드) 들어가기</h3>
+        <h3>대시보드로 바로 들어가기</h3>
         <ol class="steps">
-          <li>본페이지로 들어가 <b>앱 대시보드</b>를 엽니다.</li>
-          <li><b>고보안 모드</b>로 들어가서, 비밀번호부터 만드세요.</li>
+          <li><b>대시보드</b>로 바로 들어갑니다.</li>
+          <li><b>고보안 모드</b>에서 비밀번호를 만드세요(등록).</li>
           <li>실시간 비밀번호 + 생체 인증으로 직접 로그인해 보세요.</li>
         </ol>
-        <a class="btn main" href="https://www.mufe-baeksin.com" target="_blank" rel="noopener">
+        <a class="btn main" href="https://www.mufe-baeksin.com/" target="_blank" rel="noopener">
           대시보드 열기
           <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -393,17 +418,17 @@
         <div class="lbl">공격자 입구</div>
         <h3>실험 해킹 — 뚫어보기</h3>
         <ol class="steps">
-          <li>본페이지에 들어가 <b>고보안 모드</b>로 들어가서, 비밀번호부터 만드세요.</li>
-          <li>공격자가 되어 일부러 <b>틀린 답</b>으로 뚫어보세요.</li>
+          <li><b>'시작하기'</b>를 누르세요 — 비밀번호 만들기는 없습니다. (직접 만들면 해킹이 아니니까요.)</li>
+          <li>공격자 입장에서 곧바로 뚫어보세요.</li>
           <li><b style="color:var(--amber)">가짜 성공</b>이 뜨고, 끝없는 연산지옥(미끼)에 빠지는 걸 직접 보세요.</li>
         </ol>
-        <a class="btn hack" href="https://www.mufe-baeksin.com" target="_blank" rel="noopener">
+        <a class="btn hack" href="https://www.mufe-baeksin.com/" target="_blank" rel="noopener">
           실험 해킹 시작
           <svg viewBox="0 0 24 24"><path d="M4 17l6-6-6-6M12 19h8"/></svg></a>
       </div>
     </div>
 
-    <div class="applink rv">앱 주소 · <a href="https://www.mufe-baeksin.com" target="_blank" rel="noopener">www.mufe-baeksin.com</a></div>
+    <div class="applink rv">앱 주소 · <a href="https://www.mufe-baeksin.com/" target="_blank" rel="noopener">www.mufe-baeksin.com</a></div>
   </div>
 </section>
 
