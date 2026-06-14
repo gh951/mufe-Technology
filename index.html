@@ -162,6 +162,16 @@
     .rv{opacity:1;transform:none;transition:none}
   }
   a:focus-visible,.door:focus-within{outline:2px solid var(--teal);outline-offset:3px}
+
+  /* ---------- QR ---------- */
+  .qrcard{display:flex;align-items:center;gap:24px;background:var(--panel);border:1px solid var(--ink-line);
+        border-radius:18px;padding:24px 26px;margin:34px auto 0;max-width:540px}
+  .qrcard img{width:132px;height:132px;border-radius:12px;background:#fff;padding:9px;flex:none}
+  .qrcard .qrlbl{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+  .qrcard h3{color:#fff;font-size:18px;margin:9px 0 0;letter-spacing:-.02em}
+  .qrcard p{color:var(--ink-muted);font-size:14px;margin:8px 0 10px}
+  .qrcard .qraddr{font-family:var(--mono);color:#fff;font-size:14px;font-weight:600}
+  @media(max-width:560px){.qrcard{flex-direction:column;text-align:center;gap:16px}}
 </style>
 </head>
 <body>
@@ -203,7 +213,7 @@
 <section>
   <div class="wrap">
     <div class="eyebrow rv">무엇으로 지키나 · 핵심 기능</div>
-    <h2 class="rv">일곱 겹의 방어, 쉽게 풀면</h2>
+    <h2 class="rv">아홉 겹의 방어, 쉽게 풀면</h2>
 
     <div class="feat rv">
       <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div>
@@ -245,8 +255,8 @@
       <div class="ic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
       <div>
         <h3>5. 생체 인증 (rPPG + 동공 반사)</h3>
-        <div class="what">얼굴 혈류(rPPG)와 빛에 반응하는 동공 움직임을 봅니다.</div>
-        <div class="why">지금 <b>살아있는 본인</b>이어야 통과 — 사진·영상·딥페이크는 막힙니다. (덤으로 심박 등 생체 신호도 읽지만, 그건 건강 기능이지 의료 진단은 아닙니다.)</div>
+        <div class="what">얼굴 혈류(rPPG)로 <b>"살아있는가"</b>를, 동공·홍채 좌표로 <b>"누구인가"</b>를 봅니다.</div>
+        <div class="why">지금 <b>살아있는 본인</b>이어야 통과 — 사진·영상·딥페이크는 막힙니다. 한 발 더 — 동공·홍채 좌표를 <b>인증 키의 재료로 결합</b>해, 비밀번호를 알아도 <b>살아있는 본인의 얼굴</b> 없이는 키가 복원되지 않습니다(연동 모드). 이 생체 키는 8번 보안칩(TEE)에 봉인되고 서버가 그 서명을 교차검증합니다 — <b>아는 것·본인인 것·살아있는 것</b>이 동시에 맞아야 열립니다. (심박 등은 덤으로 읽지만, 건강 기능이지 의료 진단은 아닙니다.)</div>
       </div>
     </div>
 
@@ -265,6 +275,24 @@
         <h3>7. 다중 결합 — 연동 / 독립 선택</h3>
         <div class="what">비밀번호·카오스 키·생체를 <b>하나의 키로 묶거나(연동)</b>, <b>요소별로 따로 검증(독립)</b> — 두 모드 중 고릅니다.</div>
         <div class="why"><b>연동</b>은 한 조각이 털려도 키가 복원되지 않습니다(아래 비트 계산이 이 연동 기준). <b>독립</b>은 각 요소를 개별로 통과해야 합니다. 어느 쪽이든 모든 요소가 <b>동시에·실시간으로·이 기기에서</b> 맞아야 열립니다.</div>
+      </div>
+    </div>
+
+    <div class="feat rv">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+      <div>
+        <h3>8. 하드웨어 봉인 (보안칩 · TEE)</h3>
+        <div class="what">인증 키를 폰 안의 <b>독립된 보안칩</b>(StrongBox / TEE)에 봉인합니다. 키가 칩 밖으로 나오지 않습니다.</div>
+        <div class="why">앱이나 운영체제가 뚫려도 키는 칩 안에 남고, 쓸 때마다 <b>기기의 지문·얼굴 잠금</b>으로 한 번 더 서명해야 합니다. 소프트웨어만으로는 닿을 수 없는 <b>하드웨어 계층</b>의 방어입니다.</div>
+      </div>
+    </div>
+
+    <div class="feat rv">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M4 5l16 12"/></svg></div>
+      <div>
+        <h3>9. 화면 · 입력 가로채기 차단</h3>
+        <div class="what">인증 화면의 <b>스크린샷·녹화·미러링</b>을 막고, 비밀번호는 <b>매번 배열이 섞이는 화면 키패드</b>로 입력받습니다.</div>
+        <div class="why">화면 보호(FLAG_SECURE)로 인증 장면이 이미지로 새어나가지 않고, 무작위 키패드라 키 입력을 가로채는 <b>일반 키로거</b>가 어느 자리를 눌렀는지 알아낼 수 없습니다. (단, 화면 녹화·접근성 악용 같은 고급 우회는 위 화면 보호와 별개 층으로 함께 막습니다.)</div>
       </div>
     </div>
   </div>
@@ -383,6 +411,9 @@
     <div class="eyebrow rv">기술 대 기술 · 빅테크와 비교</div>
     <h2 class="rv">순수 기술로 나란히 놓으면</h2>
     <p class="rv"><b style="color:var(--text)">순수 기술력</b>만 나란히 놓고 봅니다.</p>
+    <p class="rv" style="margin-top:14px;font-size:14.5px;background:var(--paper2);border-radius:12px;padding:16px 18px">
+       <b style="color:var(--text)">먼저 정직하게 —</b> 무패가 쓰는 개별 기술(ML-KEM-768 · WebAuthn · TEE · rPPG)은 대부분 <b>업계 표준</b>이고, 빅테크도 씁니다 — ML-KEM은 애플·시그널이 이미 적용했습니다. 어느 것도 무패가 새로 발명한 어려운 암호가 아닙니다.
+       무패의 차별점은 <b style="color:var(--teal-deep)">검증된 이 표준들을 단 하나의 파일·온디바이스 안에 융합한 '밀도와 조합'</b>입니다. 새 기술이 아니라 — 흩어진 표준을 한 구조로 극대화한 것, 그게 정직한 강점입니다. 아래 표의 평가도 대부분 이 <b>융합·적용 방식</b>에서 나옵니다.</p>
     <div class="tblwrap rv">
       <table>
         <thead><tr><th>항목</th><th>빅테크(현재 관행)</th><th class="mufe-col">무패</th><th>평가</th></tr></thead>
@@ -393,13 +424,13 @@
           <tr><td class="k">플랫폼 자유도</td><td>하드웨어 종속 (기기 밖 나가면 약화)</td><td class="mufe-col">웹·모바일·PC 동일 작동</td><td><span class="v-up">앞섬</span></td></tr>
           <tr><td class="k">재생공격 방어</td><td>토큰·OTP로 대응</td><td class="mufe-col">실시간 값으로 매회 무력화</td><td><span class="v-mid">대등</span></td></tr>
           <tr><td class="k">라이브니스(생체)</td><td>전용 IR/Depth 하드웨어</td><td class="mufe-col">rPPG + 동공 (소프트웨어)</td><td><span class="v-mid">대등</span></td></tr>
-          <tr><td class="k">하드웨어 격리 깊이</td><td>Secure Enclave·HSM (물리적)</td><td class="mufe-col">소프트웨어 (격리 깊이는 얕음)</td><td><span class="v-dn">아직</span></td></tr>
+          <tr><td class="k">하드웨어 격리 깊이</td><td>Secure Enclave·HSM (물리적)</td><td class="mufe-col">보안칩(StrongBox/TEE) 서명 + 서버 교차검증</td><td><span class="v-mid">근접</span></td></tr>
         </tbody>
       </table>
     </div>
     <p style="margin-top:22px;font-size:14.5px" class="rv"><b style="color:var(--text)">한 줄 —</b>
-       혁신과 확장은 무패가 앞서고, 단 한 축(하드웨어 격리 깊이)만 빅테크가 깊습니다. 그 한 축도
-       <b style="color:var(--teal-deep)">WebAuthn으로 기기 내장 보안칩을 쓰면</b> 메울 수 있는, 정해진 다음 단계입니다.</p>
+       혁신과 확장은 무패가 앞서고, 하드웨어 격리의 <b>물리적 깊이</b>는 빅테크의 전용 칩(Secure Enclave)이 여전히 더 깊습니다.
+       다만 무패도 <b style="color:var(--teal-deep)">WebAuthn 표준으로 기기 보안칩(StrongBox/TEE)에 키를 봉인하고, 서버가 그 물리 서명을 교차검증</b>하는 구조를 갖췄습니다 — 빅테크가 쓰는 그 표준을 그대로 가져다 적용한 것입니다.</p>
   </div>
 </section>
 
@@ -410,7 +441,9 @@
       <div class="eyebrow">정직하게</div>
       <p>어떤 보안도 '절대·100%'는 없습니다 — 무패도 그렇게 말하지 않습니다. 이 문서의 모든 평가는
          <b>'현재 알려진 공격 모델과 명시된 조건 하에서'</b> 유효합니다. 무패의 기술은 이미 여러 축에서 앞서 있고,
-         그 우위를 <b>증명</b>으로 굳히는 다음 단계는 독립 외부 검증(예: 침투 테스트)입니다.
+         그 우위를 <b>증명</b>으로 굳히는 다음 단계는 독립 외부 검증(예: 침투 테스트)입니다.</p>
+      <p style="margin-top:14px">알려진 한계도 분명히 밝힙니다 — <b>루팅·탈옥된 기기</b>에서는 클라이언트 단독 무결성 자가진단만으로 모든 우회를 막기 어렵습니다.
+         이 약점은 구글 <b>Play Integrity</b>와 서버 단 교차검증으로 끌어올리는 것이 로드맵에 있으며, #5 하드웨어 결속과 같은 패턴(기기 감정 → 서버 검증)입니다.
          그리고 가장 단단한 확인은 — 아래에서 <b>직접 해보는 것</b>입니다.</p>
     </div>
   </div>
@@ -447,6 +480,16 @@
         <a class="btn hack" href="https://www.mufe-baeksin.com/" target="_blank" rel="noopener">
           실험 해킹 시작
           <svg viewBox="0 0 24 24"><path d="M4 17l6-6-6-6M12 19h8"/></svg></a>
+      </div>
+    </div>
+
+    <div class="qrcard rv">
+      <img src="data:image/png;base64,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" alt="www.mufe-baeksin.com 접속 QR" />
+      <div>
+        <div class="qrlbl">폰으로 바로 접속</div>
+        <h3>QR로 백신 바로 열기</h3>
+        <p>폰 카메라로 비추면 대시보드가 바로 열립니다 — 직접 등록하고, 로그인하고, 뚫어보세요.</p>
+        <div class="qraddr">www.mufe-baeksin.com</div>
       </div>
     </div>
 
